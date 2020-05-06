@@ -1,4 +1,4 @@
 /env
-*.pyc
-agenda/agenda/__pycache__/
-agenda/core/__pycache__
+agenda/agenda/__pycache__/urls.cpython-38.pyc
+agenda/core/__pycache__/models.cpython-38.pyc
+agenda/core/__pycache__/views.cpython-38.pyc
