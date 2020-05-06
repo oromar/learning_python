@@ -1,11 +1,14 @@
 {% extends "model-page.html" %}
 {% block content %}
 <h2>Agendamentos</h2>
+<a href="/agenda/evento"> 
+    <button>Novo Evento</button>
+</a>
 <ul>
     {% for event in events %}
         <div style="font-size: 18px">
             <li>{{event.title}} - {{event.get_event_date}} - {{event.user}}</li> 
         </div>
     {% endfor %}
-</ul>
+</ul> 
 {% endblock %}

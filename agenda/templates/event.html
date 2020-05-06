@@ -1,0 +1,31 @@
+{% extends 'model-page.html' %}
+
+{% block content %}
+<form action="add" method="post"> {% csrf_token %}
+    <div>
+        <div>
+            <label>Título:</label>
+        </div>
+        <div>
+            <input type="text" name="title">
+        </div>
+        <div>
+            <label>Data:</label>
+        <div>
+        </div>
+            <input type="datetime-local" name="event_date">
+        </div>
+        <div>
+            <label>Descrição:</label>
+        </div>
+        <div>
+            <textarea name="description">
+            </textarea>
+        </div>
+        <button type="submit">Salvar</button>
+        <a href="/agenda">
+            <button type="button">Cancelar</button>
+        </a>
+    </div>
+</form>
+{% endblock %}

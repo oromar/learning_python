@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from core.models import Event
+from datetime import datetime
 
 # Create your views here.
 
@@ -35,4 +36,15 @@ def submit_login(request):
 def submit_logout(request):
     logout(request)
     return redirect('/')
+
+@login_required(login_url='/login')
+def event(request):
+    if request.POST:
+        user = request.user
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        event_date = datetime.strptime(request.POST.get('event_date'), '%Y-%m-%dT%H:%M')
+        Event.objects.create(title=title, description=description, event_date=event_date, user=user)
+        return redirect('/agenda')
+    return render(request, 'event.html')
     
