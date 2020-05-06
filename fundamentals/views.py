@@ -10,9 +10,9 @@ from sqlalchemy import create_engine
 # sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 # sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-foursquare_client_id = 'HAJSSZDVOVYPI3MQVCMJJNIEV2EVRWIMUYZI503R52P4W0ZZ'
-foursquare_client_secret = 'EGXLBRVS0PS21HREFXLKEXZXSPFCRE3IFCGYOVGZIEIB4GUK'
-google_api_key = 'AIzaSyDwMx0ycbCX8E97eYL2FqFeoco45wtK-x0'
+foursquare_client_id = 'dummy_foursquare_client_id'
+foursquare_client_secret = 'dummy_client_secret'
+google_api_key = 'dummy_api_key'
 
 engine = create_engine('sqlite:///restaurants.db')
 
