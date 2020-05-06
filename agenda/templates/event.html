@@ -2,25 +2,25 @@
 
 {% block content %}
 <form action="add" method="post"> {% csrf_token %}
+<input type="hidden" name="id" value="{{event.id}}">
     <div>
         <div>
             <label>Título:</label>
         </div>
         <div>
-            <input type="text" name="title">
+            <input type="text" name="title" value="{{event.title}}">
         </div>
         <div>
             <label>Data:</label>
         <div>
         </div>
-            <input type="datetime-local" name="event_date">
+            <input type="datetime-local" name="event_date" value="{{event.get_event_date_input}}">
         </div>
         <div>
             <label>Descrição:</label>
         </div>
         <div>
-            <textarea name="description">
-            </textarea>
+            <textarea name="description">{{event.description}}</textarea>
         </div>
         <button type="submit">Salvar</button>
         <a href="/agenda">

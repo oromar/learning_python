@@ -7,7 +7,16 @@
 <ul>
     {% for event in events %}
         <div style="font-size: 18px">
-            <li>{{event.title}} - {{event.get_event_date}} - {{event.user}}</li> 
+            <li>
+                {{event.title}} - {{event.get_event_date}} - {{event.user}}
+                <a href="edit/?id={{event.id}}">
+                    <button>Editar</button>
+                </a>
+                <a href="delete/{{event.id}}/">
+                    <button>Remover</button>
+                </a>
+            </li> 
+            
         </div>
     {% endfor %}
 </ul> 

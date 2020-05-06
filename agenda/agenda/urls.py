@@ -26,4 +26,7 @@ urlpatterns = [
     path('logout', views.submit_logout),
     path('agenda/evento/', views.event),
     path('agenda/evento/add', views.event),
+    path('agenda/delete/<int:id>/', views.delete),
+    path('agenda/edit/', views.edit),
+    path('agenda/edit/add', views.event)
 ]

@@ -39,12 +39,35 @@ def submit_logout(request):
 
 @login_required(login_url='/login')
 def event(request):
+    user = request.user
     if request.POST:
-        user = request.user
         title = request.POST.get('title')
         description = request.POST.get('description')
         event_date = datetime.strptime(request.POST.get('event_date'), '%Y-%m-%dT%H:%M')
-        Event.objects.create(title=title, description=description, event_date=event_date, user=user)
+        id = request.POST.get('id')
+        if id:
+            Event.objects.filter(id=id, user=user).update(title=title, description=description, event_date=event_date, user=user)
+        else:
+            Event.objects.create(title=title, description=description, event_date=event_date, user=user)
         return redirect('/agenda')
     return render(request, 'event.html')
+
+@login_required(login_url='/login')
+def delete(request, id):
+    user = request.user
+    event = Event.objects.get(id=id)
+    if event is not None and event.user == user:
+        event.delete()
+    return redirect('/')
+
+@login_required(login_url='/login')
+def edit(request):
+    user = request.user
+    if request.GET:
+        id = request.GET.get('id')
+        event = Event.objects.get(id=id)
+        if event is not None and user == event.user:
+            data = {'event': event}
+            return render(request, 'event.html', data)
+    return redirect('/')
     
