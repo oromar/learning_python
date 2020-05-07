@@ -6,8 +6,13 @@
 </a>
 <ul>
     {% for event in events %}
+        
         <div style="font-size: 18px">
-            <li>
+            {% if event.is_late %}
+                <li style="color:red">
+            {% else %}
+                <li>
+            {% endif %}
                 {{event.title}} - {{event.get_event_date}} - {{event.user}}
                 <a href="edit/?id={{event.id}}">
                     <button>Editar</button>

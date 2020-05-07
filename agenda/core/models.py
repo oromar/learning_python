@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+import pytz
 
 # Create your models here.
 class Event(models.Model):
@@ -17,3 +19,8 @@ class Event(models.Model):
 
     def get_event_date_input(self):
         return self.event_date.strftime('%Y-%m-%dT%H:%M')
+    
+    def is_late(self):
+        if self.event_date < datetime.utcnow().replace(tzinfo=pytz.UTC):
+            return True
+        return False

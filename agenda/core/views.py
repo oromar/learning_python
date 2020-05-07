@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from core.models import Event
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -13,7 +13,8 @@ def index(request):
 @login_required(login_url='/login')
 def list_events(request):
     user = request.user
-    events = Event.objects.filter(user=user)
+    reference_date = datetime.now() - timedelta(hours=1)
+    events = Event.objects.filter(user=user, event_date__gt=reference_date)
     response = {'events': list(events)}
     return render(request, 'agenda.html', response)
 
