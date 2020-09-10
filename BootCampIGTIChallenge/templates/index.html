@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão de Diabetes</title>
+</head>
+
+<body>
+    <h3>Previsão Diabetes</h3>
+
+    <div>
+        <form action="/result" method="POST">
+            <label for="gest">Número de gestações</label>
+            <input type="text" id="gest" name="gest">
+            <br>
+            <label for="glic">Concentração de Glicose</label>
+            <input type="text" name="glic" id="glic">
+            <br>
+            <label for="pressure">Pressão Diastólica</label>
+            <input type="text" name="pressure" id="pressure">
+            <br>
+            <label for="cutis">Espessura da Dobra Cutânea do Tríceps</label>
+            <input type="text" name="cutis" id="cutis">
+            <br>
+            <label for="insulin">Nível de Insulina</label>
+            <input type="text" name="insulin" id="insulin">
+            <br>
+            <label for="imc">Indice de Massa Corporal</label>
+            <input type="text" name="imc" id="imc">
+            <br>
+            <label for="gen">Herança Genética</label>
+            <input type="text" name="gen" id="gen">
+            <br>
+            <label for="age">Idade</label>
+            <input type="text" name="age" id="age">
+            <br>
+            <button>Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>
